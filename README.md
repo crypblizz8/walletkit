@@ -21,7 +21,8 @@ const result = await multiply(3, 7);
 ## Alpha Release TODO List
 
 - [ ] Spec
-- [ ] Npm init + test publish
+- [ ] Npm init
+- [ ] Test publish
 - [ ] Context Wrap in a WalletProvider with Web3WalletSDK
 - [ ] Simple Hooks (useBalance, useAddress, useSendTransaction)
 
