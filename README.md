@@ -1,6 +1,6 @@
-# walletkit
+# WalletKit
 
-Web3 UI Component Kit for React native
+Web3 UI Component Kit for React Native
 
 ## Installation
 
