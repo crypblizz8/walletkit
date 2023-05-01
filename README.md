@@ -28,9 +28,8 @@ import { WalletKitProvider } from 'walletkit';
 
 Spec
 
-- Bootstrap it with import PKey and public address
-- envs: ProjectID + privatekey
-
+- [ ] Bootstrap it with import PKey and public address
+- [ ] envs: ProjectID + privatekey
 - [ ] Spec
 - [ ] Npm init
 - [ ] Test publish
