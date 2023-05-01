@@ -21,43 +21,6 @@ export let web3wallet: IWeb3Wallet;
 export let core: ICore;
 // export let currentETHAddress: string;
 
-// export function WalletConnectProvider({ children }) {
-//   const [initialized, setInitialized] = useState(false);
-
-//   const createWeb3Wallet = useCallback(async () => {
-//     try {
-//       core = new Core({
-//         // @notice: If you want the debugger / logs
-//         logger: 'debug',
-//         projectId: PROJECT_ID,
-//       });
-
-//       web3wallet = await Web3Wallet.init({
-//         core,
-//         metadata: {
-//           name: 'React Native UI Kit',
-//           description: 'ReactNative Web3Wallet',
-//           url: 'https://walletconnect.com/',
-//           icons: ['https://avatars.githubusercontent.com/u/37784886'],
-//         },
-//       });
-//       setInitialized(true);
-//     } catch (err: unknown) {
-//       console.log('Error for initializing Web3Wallet', err);
-//     }
-//   }, []);
-
-//   useEffect(() => {
-//     console.log('initialize state', initialized);
-//     createWeb3Wallet();
-//   }, [createWeb3Wallet, initialized]);
-
-//   return (
-//     <WalletConnectContext.Provider value={{ initialized }}>
-//       {children}
-//     </WalletConnectContext.Provider>
-//   );
-// }
 const WalletConnectContext = createContext();
 
 interface CoreMetaData {
