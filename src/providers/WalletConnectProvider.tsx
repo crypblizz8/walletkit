@@ -1,7 +1,10 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useCallback } from 'react';
 import '@walletconnect/react-native-compat';
+import '@ethersproject/shims';
+// import { ethers } from 'ethers';
+
 import { Core } from '@walletconnect/core';
-import { ICore } from '@walletconnect/types';
+import type { ICore } from '@walletconnect/types';
 import { Web3Wallet, IWeb3Wallet } from '@walletconnect/web3wallet';
 
 // Required for TextEncoding Issue
@@ -14,41 +17,102 @@ Object.assign(global, {
   BigInt: BigInt,
 });
 
-const PROJECT_ID = '2cb6aea9b22abeddab08c580dae0b3f6';
+export let web3wallet: IWeb3Wallet;
+export let core: ICore;
+// export let currentETHAddress: string;
 
-interface WalletContextType {
-  core: ICore;
-  wallet: IWeb3Wallet;
+// export function WalletConnectProvider({ children }) {
+//   const [initialized, setInitialized] = useState(false);
+
+//   const createWeb3Wallet = useCallback(async () => {
+//     try {
+//       core = new Core({
+//         // @notice: If you want the debugger / logs
+//         logger: 'debug',
+//         projectId: PROJECT_ID,
+//       });
+
+//       web3wallet = await Web3Wallet.init({
+//         core,
+//         metadata: {
+//           name: 'React Native UI Kit',
+//           description: 'ReactNative Web3Wallet',
+//           url: 'https://walletconnect.com/',
+//           icons: ['https://avatars.githubusercontent.com/u/37784886'],
+//         },
+//       });
+//       setInitialized(true);
+//     } catch (err: unknown) {
+//       console.log('Error for initializing Web3Wallet', err);
+//     }
+//   }, []);
+
+//   useEffect(() => {
+//     console.log('initialize state', initialized);
+//     createWeb3Wallet();
+//   }, [createWeb3Wallet, initialized]);
+
+//   return (
+//     <WalletConnectContext.Provider value={{ initialized }}>
+//       {children}
+//     </WalletConnectContext.Provider>
+//   );
+// }
+const WalletConnectContext = createContext();
+
+interface CoreMetaData {
+  name: string;
+  description: string;
+  url: string;
+  icons: string[];
 }
 
-const WalletContext = createContext<WalletContextType>({
-  core: new Core({}),
-  wallet: new Web3Wallet({}),
-});
+interface WalletConnectProviderProps {
+  children: React.ReactNode;
+  projectID: string;
+  relayURL?: string;
+  metadata?: CoreMetaData;
+}
 
-const WalletProvider: React.FC = ({ children }) => {
-  const [core, setCore] = useState<ICore>(new Core({ projectId: PROJECT_ID }));
-  const [wallet, setWallet] = useState<IWeb3Wallet>(null);
-  const value = { core, wallet };
+export function WalletConnectProvider({
+  children,
+  projectID,
+  relayURL,
+  metadata,
+}: WalletConnectProviderProps) {
+  const [initialized, setInitialized] = useState(false);
+
+  const createWeb3Wallet = useCallback(async () => {
+    try {
+      core = new Core({
+        logger: 'debug',
+        projectId: projectID,
+        relayUrl: relayURL || 'wss://relay.walletconnect.com',
+      });
+
+      web3wallet = await Web3Wallet.init({
+        core,
+        metadata: metadata || {
+          name: 'React Native UI Kit',
+          description: 'ReactNative Web3Wallet',
+          url: 'https://walletconnect.com/',
+          icons: ['https://avatars.githubusercontent.com/u/37784886'],
+        },
+      });
+      setInitialized(true);
+    } catch (err: unknown) {
+      console.log('Error for initializing Web3Wallet', err);
+    }
+  }, [projectID, relayURL, metadata]);
 
   useEffect(() => {
-    const initWallet = async () => {
-      const metadata = {
-        name: 'Web3 Wallet',
-        description: 'A Web3 Wallet Starter Kit',
-        url: 'https://walletconnect.com/',
-        icons: ['https://avatars.githubusercontent.com/u/37784886'],
-      };
-      const web3wallet = await Web3Wallet.init({ core, metadata });
-      setWallet(web3wallet);
-      console.log('Wallet initialized', web3wallet);
-    };
-    initWallet();
-  }, [core]);
+    console.log('initialize state', initialized);
+    createWeb3Wallet();
+  }, [createWeb3Wallet, initialized]);
 
   return (
-    <WalletContext.Provider value={value}>{children}</WalletContext.Provider>
+    <WalletConnectContext.Provider value={{ initialized }}>
+      {children}
+    </WalletConnectContext.Provider>
   );
-};
-
-export { WalletContext, WalletProvider };
+}

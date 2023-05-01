@@ -11,14 +11,21 @@ npm install walletkit
 ## Usage
 
 ```js
-import { multiply } from 'walletkit';
+import { WalletKitProvider } from 'walletkit';
 
-// ...
+...
 
-const result = await multiply(3, 7);
+ <WalletKitProvider projectId={projectId} relayUrl={relayURL} metadata={metadata}>
+    <Component>
+ </WalletKitProvider>
 ```
 
 ## Alpha Release TODO List
+
+Spec
+
+- Bootstrap it with import PKey and public address
+- envs: ProjectID + privatekey
 
 - [ ] Spec
 - [ ] Npm init
@@ -26,26 +33,25 @@ const result = await multiply(3, 7);
 - [ ] Context Wrap in a WalletProvider with Web3WalletSDK
 - [ ] Simple Hooks (useBalance, useAddress, useSendTransaction)
 
-Components
+Initial Components
 
 - [ ] Zerion TX Component
 - [ ] ENS Component
-- [ ] Gnosis Component
+- [ ] Swap Component
 
-## Future Components
+Future Components
 
-- [ ] Swap
-- [ ] Lens
+- [ ] Gnosis
+- [ ] Lens with [react-native-lens-ui-kit](https://github.com/lens-protocol/react-native-lens-ui-kit/)
 - [ ] NFTs
 - [ ] OnRamps
 - [ ] In App Browser
 - [ ] Multichain: big one
 - [ ] Staking
-- [ ] Account Abstraction
+- [ ] Account Abstraction / Smart Accounts
 - [ ] Chat
 - [ ] Push Notifications
-- [ ] AA
-- [ ] MPC
+- [ ] MPC (Web3Auth)
 - Pretty much in line with my thesis/analysis [here](https://mirror.xyz/crypblizz.eth/3rUdZbcRdrcfONqoD4dNWujrOAB6VuG9GMSmoMjqdjk)
 
 ## Contributing

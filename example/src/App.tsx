@@ -1,21 +1,22 @@
 import * as React from 'react';
 
 import { StyleSheet, View, Text } from 'react-native';
-import { WalletProvider, multiply } from 'walletkit';
+import { WalletConnectProvider } from 'walletkit';
+
+const metadata = {
+  name: 'WalletKit',
+  description: 'Web3 React Native UI KIT',
+  url: 'https://walletconnect.com/',
+  icons: ['https://avatars.githubusercontent.com/u/37784886'],
+};
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
-
-  React.useEffect(() => {
-    multiply(3, 7).then(setResult);
-  }, []);
-
   return (
-    <WalletProvider>
+    <WalletConnectProvider projectID={PROJECT_ID} metadata={metadata}>
       <View style={styles.container}>
-        <Text>Result: {result}</Text>
+        <Text>WalletKit</Text>
       </View>
-    </WalletProvider>
+    </WalletConnectProvider>
   );
 }
 
