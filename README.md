@@ -33,7 +33,7 @@ Spec
 - [ ] Spec
 - [ ] Npm init
 - [ ] Test publish
-- [ ] Context Wrap in a WalletProvider with Web3WalletSDK
+- [x] Context Wrap in a WalletProvider with Web3WalletSDK
 - [ ] Simple Hooks (useBalance, useAddress, useSendTransaction)
 
 Initial Components
@@ -41,11 +41,11 @@ Initial Components
 - [ ] Zerion TX Component
 - [ ] ENS Component
 - [ ] Swap Component
+- [ ] Lens with [react-native-lens-ui-kit](https://github.com/lens-protocol/react-native-lens-ui-kit/)
 
 Future Components
 
 - [ ] Gnosis
-- [ ] Lens with [react-native-lens-ui-kit](https://github.com/lens-protocol/react-native-lens-ui-kit/)
 - [ ] NFTs
 - [ ] OnRamps
 - [ ] In App Browser
