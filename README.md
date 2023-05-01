@@ -6,6 +6,10 @@ Web3 UI Component Kit for React Native
 
 ```sh
 npm install walletkit
+
+// or with yarn
+
+yarn add walletkit
 ```
 
 ## Usage
