@@ -69,8 +69,8 @@ export function WalletConnectProvider({
   }, [projectID, relayURL, metadata]);
 
   useEffect(() => {
-    console.log('initialize state', initialized);
     createWeb3Wallet();
+    console.log('initialize state', initialized);
   }, [createWeb3Wallet, initialized]);
 
   return (

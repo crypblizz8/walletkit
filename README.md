@@ -30,21 +30,18 @@ Spec
 
 - [ ] Bootstrap it with import PKey and public address
 - [ ] envs: ProjectID + privatekey
-- [ ] Spec
 - [ ] Npm init
 - [ ] Test publish
 - [x] Context Wrap in a WalletProvider with Web3WalletSDK
-- [ ] Simple Hooks (useBalance, useAddress, useSendTransaction)
+- [ ] Simple Hooks (useBalance, useAddress, useSendTransaction) - Use ThirdWeb?
 
 Initial Components
-
+- [ ] WalletConnect QR Code
 - [ ] Zerion TX Component
-- [ ] ENS Component
-- [ ] Swap Component
-- [ ] Lens with [react-native-lens-ui-kit](https://github.com/lens-protocol/react-native-lens-ui-kit/)
+- [ ] Swap Component via 0x?
 
 Future Components
-
+- [ ] ENS
 - [ ] Gnosis
 - [ ] NFTs
 - [ ] OnRamps
@@ -55,6 +52,7 @@ Future Components
 - [ ] Chat
 - [ ] Push Notifications
 - [ ] MPC (Web3Auth)
+- [ ] Lens with [react-native-lens-ui-kit](https://github.com/lens-protocol/react-native-lens-ui-kit/)
 - Pretty much in line with my thesis/analysis [here](https://mirror.xyz/crypblizz.eth/3rUdZbcRdrcfONqoD4dNWujrOAB6VuG9GMSmoMjqdjk)
 
 ## Contributing

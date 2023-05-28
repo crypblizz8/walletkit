@@ -1,8 +1,13 @@
 import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { StyleSheet, View, Text } from 'react-native';
 import { WalletConnectProvider } from 'walletkit';
+import Home from './screens/Home';
+import QRCode from './screens/QRCode';
+const Stack = createNativeStackNavigator();
 
+const PROJECT_ID = '';
 const metadata = {
   name: 'WalletKit',
   description: 'Web3 React Native UI KIT',
@@ -13,22 +18,21 @@ const metadata = {
 export default function App() {
   return (
     <WalletConnectProvider projectID={PROJECT_ID} metadata={metadata}>
-      <View style={styles.container}>
-        <Text>WalletKit</Text>
-      </View>
+      <NavigationContainer>
+        <Stack.Navigator
+          initialRouteName="Home"
+          screenOptions={{
+            headerShown: false,
+          }}
+        >
+          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen
+            name="QRCode"
+            component={QRCode}
+            options={{ headerShown: true }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
     </WalletConnectProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
-  },
-});
