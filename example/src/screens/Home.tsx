@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
 
 import {
   StyleSheet,
@@ -9,16 +8,7 @@ import {
   FlatList,
   StatusBar,
 } from 'react-native';
-import { WalletConnectProvider } from 'walletkit';
 import Button from '../components/Button';
-
-const PROJECT_ID = '2cb6aea9b22abeddab08c580dae0b3f6';
-const metadata = {
-  name: 'WalletKit',
-  description: 'Web3 React Native UI KIT',
-  url: 'https://walletconnect.com/',
-  icons: ['https://avatars.githubusercontent.com/u/37784886'],
-};
 
 const DATA = [
   {
@@ -45,7 +35,7 @@ export default function Home({ navigation }) {
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" />
       <View style={styles.flexCenter}>
-        <Text>WalletKit</Text>
+        <Text style={styles.title}>WalletKit</Text>
         <FlatList
           data={DATA}
           renderItem={({ item }) => (
@@ -64,8 +54,11 @@ export default function Home({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
     justifyContent: 'center',
+  },
+  title: {
+    fontSize: 24,
+    marginBottom: 16,
   },
   flatListContainer: {
     alignItems: 'center',

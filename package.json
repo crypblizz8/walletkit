@@ -159,10 +159,11 @@
   "dependencies": {
     "@ethersproject/shims": "^5.7.0",
     "@react-native-async-storage/async-storage": "^1.18.1",
-    "@walletconnect/react-native-compat": "^2.7.0",
-    "@walletconnect/web3wallet": "^1.5.1",
+    "@walletconnect/react-native-compat": "^2.7.7",
+    "@walletconnect/types": "^2.7.7",
+    "@walletconnect/web3wallet": "^1.7.5",
     "big-integer": "^1.6.51",
-    "ethers": "5.4",
+    "ethers": "5.7.2",
     "fast-text-encoding": "^1.0.6",
     "react-native-get-random-values": "^1.8.0",
     "text-encoding": "^0.7.0"

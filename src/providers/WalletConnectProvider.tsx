@@ -1,27 +1,17 @@
-import React, { createContext, useState, useEffect, useCallback } from 'react';
+import 'fast-text-encoding';
+import 'react-native-get-random-values';
 import '@walletconnect/react-native-compat';
 import '@ethersproject/shims';
-// import { ethers } from 'ethers';
-
 import { Core } from '@walletconnect/core';
 import type { ICore } from '@walletconnect/types';
 import { Web3Wallet, IWeb3Wallet } from '@walletconnect/web3wallet';
 
-// Required for TextEncoding Issue
-const TextEncodingPolyfill = require('text-encoding');
-const BigInt = require('big-integer');
-
-Object.assign(global, {
-  TextEncoder: TextEncodingPolyfill.TextEncoder,
-  TextDecoder: TextEncodingPolyfill.TextDecoder,
-  BigInt: BigInt,
-});
+import React, { createContext, useState, useEffect, useCallback } from 'react';
 
 export let web3wallet: IWeb3Wallet;
 export let core: ICore;
-// export let currentETHAddress: string;
 
-const WalletConnectContext = createContext();
+const WalletConnectContext = createContext(false);
 
 interface CoreMetaData {
   name: string;
@@ -48,7 +38,7 @@ export function WalletConnectProvider({
   const createWeb3Wallet = useCallback(async () => {
     try {
       core = new Core({
-        logger: 'debug',
+        // logger: 'debug',
         projectId: projectID,
         relayUrl: relayURL || 'wss://relay.walletconnect.com',
       });
@@ -70,12 +60,17 @@ export function WalletConnectProvider({
 
   useEffect(() => {
     createWeb3Wallet();
-    console.log('initialize state', initialized);
+    console.log('Web3Wallet Initialized:', initialized);
   }, [createWeb3Wallet, initialized]);
 
   return (
-    <WalletConnectContext.Provider value={{ initialized }}>
+    <WalletConnectContext.Provider value={initialized}>
       {children}
     </WalletConnectContext.Provider>
   );
+}
+
+// Note: Used to create initial pairing session
+export async function web3WalletPair(params: { uri: string }) {
+  return await web3wallet.core.pairing.pair({ uri: params.uri });
 }
