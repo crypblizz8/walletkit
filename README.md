@@ -1,4 +1,4 @@
-# WalletKit
+# React Native WalletKit
 
 Web3 UI Component Kit for React Native
 
@@ -28,7 +28,7 @@ import { WalletKitProvider } from 'walletkit';
 
 Spec
 
-- [ ] Bootstrap it with import PKey and public address
+- [x] Bootstrap it with import PKey and public address
 - [ ] envs: ProjectID + privatekey
 - [ ] Npm init
 - [ ] Test publish
@@ -36,17 +36,20 @@ Spec
 - [ ] Simple Hooks (useBalance, useAddress, useSendTransaction) - Use ThirdWeb?
 
 Initial Components
+
 - [ ] WalletConnect QR Code
 - [ ] Zerion TX Component
 - [ ] Swap Component via 0x?
 
 Future Components
+
 - [ ] ENS
 - [ ] Gnosis
 - [ ] NFTs
 - [ ] OnRamps
 - [ ] In App Browser
 - [ ] Multichain: big one
+- [ ] Viem Wallet Setup.
 - [ ] Staking
 - [ ] Account Abstraction / Smart Accounts
 - [ ] Chat

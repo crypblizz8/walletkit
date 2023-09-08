@@ -163,9 +163,10 @@
     "@walletconnect/types": "^2.7.7",
     "@walletconnect/web3wallet": "^1.7.5",
     "big-integer": "^1.6.51",
-    "ethers": "5.7.2",
     "fast-text-encoding": "^1.0.6",
     "react-native-get-random-values": "^1.8.0",
+    "react-native-qrcode-svg": "^6.2.0",
+    "react-native-svg": "^13.13.0",
     "text-encoding": "^0.7.0"
   }
 }

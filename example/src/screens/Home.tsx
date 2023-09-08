@@ -10,42 +10,76 @@ import {
 } from 'react-native';
 import Button from '../components/Button';
 
+import { createAndStoreWallet, getWallet, wallet } from '../utils/EIP155Wallet';
+import { useEffect } from 'react';
+// import Zerion from '../components/Zerion';
+
 const DATA = [
   {
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
     title: 'QR Code',
     navigate: 'QRCode',
   },
   {
-    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-    title: 'Swap',
+    title: 'TX List',
+    navigate: 'Transactions',
   },
   {
-    id: '58694a0f-3da1-471f-bd96-145571e29d72',
-    title: 'Send',
+    title: 'NFT',
+    navigate: 'NFTScreen',
   },
   {
-    id: '58694a0f-3da1-471f-bd96-145571e29272',
     title: 'Receive',
+    navigate: 'ReceiveScreen',
+  },
+  {
+    title: 'ReceiveTwo',
+    navigate: 'ReceiveScreenTwo',
+  },
+  // {
+  //   title: 'Send',
+  // },
+  {
+    title: 'Swap',
+    disabled: true,
+  },
+  {
+    title: 'ENS',
+    disabled: true,
   },
 ];
 
 export default function Home({ navigation }) {
+  useEffect(() => {
+    console.log('wallet', wallet);
+    if (!wallet) {
+      createAndStoreWallet();
+    } else {
+      getWallet();
+    }
+  }, []);
+
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" />
       <View style={styles.flexCenter}>
         <Text style={styles.title}>WalletKit</Text>
+        <Text style={styles.centeredText}>
+          Address: {'\n'} {wallet ? wallet?.address : null}
+        </Text>
+
         <FlatList
           data={DATA}
           renderItem={({ item }) => (
             <Button
+              disabled={item.disabled}
               title={item.title}
-              onPress={() => navigation.navigate('QRCode')}
+              onPress={() => navigation.navigate(item?.navigate || `QRCode`)}
             />
           )}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item) => item.title}
         />
+        {/* <Zerion /> */}
+        {/* <Etherscan /> */}
       </View>
     </SafeAreaView>
   );
@@ -58,6 +92,11 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
+    marginBottom: 16,
+  },
+  centeredText: {
+    fontSize: 14,
+    textAlign: 'center',
     marginBottom: 16,
   },
   flatListContainer: {
