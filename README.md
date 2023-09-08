@@ -1,14 +1,10 @@
-# WalletKit
+# React Native Wallet Kit
 
-Web3 UI Component Kit for React Native
+Bootstrap Web3 Wallet Components with one simple package.
 
 ## Installation
 
 ```sh
-npm install walletkit
-
-// or with yarn
-
 yarn add walletkit
 ```
 
@@ -16,7 +12,6 @@ yarn add walletkit
 
 ```js
 import { WalletKitProvider } from 'walletkit';
-
 ...
 
  <WalletKitProvider projectId={projectId} relayUrl={relayURL} metadata={metadata}>
@@ -24,24 +19,12 @@ import { WalletKitProvider } from 'walletkit';
  </WalletKitProvider>
 ```
 
-## Alpha Release TODO List
-
-Spec
-
-- [ ] Bootstrap it with import PKey and public address
-- [ ] envs: ProjectID + privatekey
-- [ ] Npm init
-- [ ] Test publish
-- [x] Context Wrap in a WalletProvider with Web3WalletSDK
-- [ ] Simple Hooks (useBalance, useAddress, useSendTransaction) - Use ThirdWeb?
-
-Initial Components
-- [ ] WalletConnect QR Code
-- [ ] Zerion TX Component
-- [ ] Swap Component via 0x?
+[Alpha Release](https://github.com/crypblizz8/walletkit/issues/2)
 
 Future Components
-- [ ] ENS
+
+- [ ] ENS Lookup
+- [ ] ENS Registration
 - [ ] Gnosis
 - [ ] NFTs
 - [ ] OnRamps
