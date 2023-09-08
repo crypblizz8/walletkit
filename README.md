@@ -20,6 +20,7 @@ import { WalletKitProvider } from 'walletkit';
 ```
 
 [Alpha Release](https://github.com/crypblizz8/walletkit/issues/2)
+
 [Beta / Future Releases](https://github.com/crypblizz8/walletkit/issues/4)
 
 ## Contributing
