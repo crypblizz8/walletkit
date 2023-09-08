@@ -2,4 +2,5 @@
 //   return Promise.resolve(a * b);
 // }
 
-export * from './providers/WalletConnectProvider';
+export * from './providers';
+export * from './components';

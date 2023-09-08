@@ -8,29 +8,17 @@ import {
   FlatList,
   StatusBar,
 } from 'react-native';
-import Button from '../components/Button';
+
+import { Button } from 'walletkit';
 
 const DATA = [
   {
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
     title: 'QR Code',
     navigate: 'QRCode',
   },
-  {
-    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-    title: 'Swap',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d72',
-    title: 'Send',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29272',
-    title: 'Receive',
-  },
 ];
 
-export default function Home({ navigation }) {
+export default function Home() {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" />
@@ -39,12 +27,9 @@ export default function Home({ navigation }) {
         <FlatList
           data={DATA}
           renderItem={({ item }) => (
-            <Button
-              title={item.title}
-              onPress={() => navigation.navigate('QRCode')}
-            />
+            <Button title={item.title} onPress={() => console.log('test')} />
           )}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item) => item.title}
         />
       </View>
     </SafeAreaView>
