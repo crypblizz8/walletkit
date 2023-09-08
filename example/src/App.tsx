@@ -4,6 +4,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { WalletConnectProvider } from 'walletkit';
 import Home from './screens/Home';
+import Balance from './screens/Balance';
+
 const Stack = createNativeStackNavigator();
 
 const PROJECT_ID = '';
@@ -25,11 +27,11 @@ export default function App() {
           }}
         >
           <Stack.Screen name="Home" component={Home} />
-          {/* <Stack.Screen
-            name="QRCode"
-            component={QRCode}
+          <Stack.Screen
+            name="Balance"
+            component={Balance}
             options={{ headerShown: true }}
-          /> */}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </WalletConnectProvider>
