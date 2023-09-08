@@ -18,7 +18,7 @@ const DATA = [
   },
 ];
 
-export default function Home({ navigation }) {
+export default function Home() {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" />
@@ -27,10 +27,7 @@ export default function Home({ navigation }) {
         <FlatList
           data={DATA}
           renderItem={({ item }) => (
-            <Button
-              title={item.title}
-              onPress={() => navigation.navigate('QRCode')}
-            />
+            <Button title={item.title} onPress={() => console.log('test')} />
           )}
           keyExtractor={(item) => item.title}
         />
