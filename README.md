@@ -20,23 +20,7 @@ import { WalletKitProvider } from 'walletkit';
 ```
 
 [Alpha Release](https://github.com/crypblizz8/walletkit/issues/2)
-
-Future Components
-
-- [ ] ENS Lookup
-- [ ] ENS Registration
-- [ ] Gnosis
-- [ ] NFTs
-- [ ] OnRamps
-- [ ] In App Browser
-- [ ] Multichain: big one
-- [ ] Staking
-- [ ] Account Abstraction / Smart Accounts
-- [ ] Chat
-- [ ] Push Notifications
-- [ ] MPC (Web3Auth)
-- [ ] Lens with [react-native-lens-ui-kit](https://github.com/lens-protocol/react-native-lens-ui-kit/)
-- Pretty much in line with my thesis/analysis [here](https://mirror.xyz/crypblizz.eth/3rUdZbcRdrcfONqoD4dNWujrOAB6VuG9GMSmoMjqdjk)
+[Beta / Future Releases](https://github.com/crypblizz8/walletkit/issues/4)
 
 ## Contributing
 
