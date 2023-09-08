@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { StyleSheet, View, SafeAreaView, StatusBar } from 'react-native';
+import { StyleSheet, SafeAreaView } from 'react-native';
 
 import { Balance } from 'walletkit';
 
