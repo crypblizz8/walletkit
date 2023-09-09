@@ -2,6 +2,8 @@ import * as React from 'react';
 import { StyleSheet, View, SafeAreaView, Text, StatusBar } from 'react-native';
 import { Button } from 'walletkit';
 
+//TODO: Fix navigation Type later
+//@ts-ignore
 export default function Home({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
