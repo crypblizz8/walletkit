@@ -34,3 +34,9 @@ MIT
 ---
 
 Made with [create-react-native-library](https://github.com/callstack/react-native-builder-bob)
+
+## License
+Licensed under the MIT License
+
+See [LICENSE](./LICENSE) for more information.
+
