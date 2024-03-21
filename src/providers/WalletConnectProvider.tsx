@@ -35,6 +35,10 @@ export function WalletConnectProvider({
 }: WalletConnectProviderProps) {
   const [initialized, setInitialized] = useState(false);
 
+  if (!projectID) {
+    throw new Error('WalletConnect ProjectID is required');
+  }
+
   const createWeb3Wallet = useCallback(async () => {
     try {
       core = new Core({
